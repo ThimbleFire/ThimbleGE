@@ -43,7 +43,24 @@ int main() {
     
     while(running) {
 
-        // logic
+        ClearScreen(renderer);
+
+        // handle logic
+        if(SDL_PollEvent(&event)) {
+
+            switch(event.type) {
+                case SDL_KEYDOWN:
+                    running = event.key.keysym.scancode != SDL_SCANCODE_ESCAPE;
+                    break;
+                case SDL_QUIT:
+                    running = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        SDL_RenderPresent(renderer);
     }    
 
     Shutdown();
