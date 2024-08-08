@@ -1,3 +1,5 @@
+//https://github.com/aminosbh/sdl2-samples-and-projects?tab=readme-ov-file
+
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
@@ -11,7 +13,7 @@ static bool Init() {
  
 
     if(SDL_Init(SDL_INIT_VIDEO) < 0) {
-        printf("SDL could not initialize! SDL_Error: $s\n", SDL_GetError());
+        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         return EXIT_FAILURE;
     }
 
@@ -24,7 +26,7 @@ static bool Init() {
     );
  
     if(window == nullptr) {
-        printf("SDL could not initialize! SDL_Error: $s\n", SDL_GetError());
+        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
         SDL_Quit();
         return EXIT_FAILURE;
     }
